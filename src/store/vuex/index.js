@@ -1,3 +1,6 @@
+import ModuleCollection from './MuduleCollection';
+import installModule from './initModule';
+
 let Vue;
 
 class Store{
@@ -7,11 +10,44 @@ class Store{
         state: options.state
       }
     });
+    
+    this.getters = {};
+    this.mutations = {};
+    this.actions = {};
+
+    this.modules = new ModuleCollection(options);
+
+    console.log(this.modules);
+
+    installModule(Vue, this, this.state, [], this.modules.root);
+    
+  }
+
+  commit = (mutationName, payload) => {
+    this.mutations[mutationName].forEach(fn => {
+      fn(payload);
+    });
+  }
+
+  dispatch = (actionName, payload) => {
+    this.actions[actionName].forEach(fn => {
+      fn(payload);
+    });
   }
 
   get state() {
     return this.vm.state;
   }
+
+  // register(moduleName, module) {
+  //   if (!Array.isArray(moduleName)) {
+  //     moduleName = [moduleName];
+  //   }
+
+  //   this.modules.register(moduleName, module);
+
+  //   installModule(Vue, this, this.state, [], this.modules.root);
+  // }
 }
 
 const install = (_vue) => {

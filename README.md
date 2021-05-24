@@ -6,7 +6,7 @@ draft: true
 ### vuex原理图
 
 - state：单一状态树，类似于全局的一个容器
-- getter：相对于state的计算属性
+- getters：相对于state的计算属性
 - mutations：定义同步方法
 - actions：定义异步逻辑，请求过后再去调用mutations里的方法
 
@@ -35,3 +35,9 @@ class Store{
   }
 }
 ```
+
+### 实现高阶版vuex（包含modules）
+
+文档及讲解请看：![高阶版vuex](https://rocketturtlewqt.github.io/vue源码/vuex/vuex原理及源码/)
+
+- 源码在src/store/vuex
