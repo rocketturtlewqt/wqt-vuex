@@ -38,6 +38,6 @@ class Store{
 
 ### 实现高阶版vuex（包含modules）
 
-文档及讲解请看：![高阶版vuex](https://rocketturtlewqt.github.io/vue源码/vuex/vuex原理及源码/)
+文档及讲解请看：[高阶版vuex](https://rocketturtlewqt.github.io/vue源码/vuex/vuex原理及源码/)
 
 - 源码在src/store/vuex
